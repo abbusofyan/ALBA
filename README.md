@@ -1,14 +1,63 @@
-<img width="1902" height="913" alt="image" src="https://github.com/user-attachments/assets/d7c75122-00c0-4539-8293-3d4ca05cf861" />ALBA is a singaporean waste management company. This system is working as a admin dashboard for their mobile apps. And it also provides the APIs to handle the backend side of their mobile apps. 
-Stack : 
+# ALBA Admin Dashboard & Backend System
+
+This project is an **Admin Dashboard and Backend API system** developed for **ALBA**, a Singapore-based waste management company.
+
+The system serves two main purposes:
+- Provides an **admin dashboard** to manage and monitor ALBA’s mobile applications
+- Exposes **RESTful APIs** to support backend operations for ALBA’s mobile apps
+
+---
+
+## 🏗 Technology Stack
+
+### Backend
 - Laravel
-- Vue JS
-- Inertia JS
-- Laravel Sanctum
+- Laravel Sanctum (API Authentication)
 
-Integration : 
-- RVM System
-- Envipco
+### Frontend
+- Vue.js
+- Inertia.js
 
-<img width="1920" height="919" alt="image" src="https://github.com/user-attachments/assets/2605d69b-3f1e-4cd9-a817-07b0ba94fdc5" />
-<img width="1902" height="913" alt="image" src="https://github.com/user-attachments/assets/7fbc222f-a7f0-433a-8563-e2819b304907" />
+---
 
+## 🔗 Integrations
+
+- **RVM System**  
+  Integration for managing and monitoring Reverse Vending Machine (RVM) operations.
+
+- **Envipco**  
+  Integration with Envipco systems for recycling and waste data synchronization.
+
+---
+
+## ✨ Features
+
+- Centralized admin dashboard for mobile app management
+- Secure API authentication using Laravel Sanctum
+- Real-time and historical data monitoring
+- Integration with external RVM providers
+- Scalable and maintainable architecture
+
+---
+
+## 🖥 Screenshots
+
+### Admin Dashboard
+![Admin Dashboard](https://github.com/user-attachments/assets/2605d69b-3f1e-4cd9-a817-07b0ba94fdc5)
+
+### Analytics & Data View
+![Analytics View](https://github.com/user-attachments/assets/7fbc222f-a7f0-433a-8563-e2819b304907)
+
+---
+
+## 📌 Notes
+
+This system acts as both:
+- A web-based admin dashboard
+- A backend service provider for mobile applications
+
+---
+
+## 📄 License
+
+This project is proprietary and developed exclusively for **ALBA**.
