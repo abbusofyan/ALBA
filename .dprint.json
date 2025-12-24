@@ -1,0 +1,26 @@
+{
+    "incremental": true,
+    "typescript": {},
+    "json": {},
+    "malva": {},
+    "markup": {
+        "html": {
+            "preferSingleLine": true
+        }
+    },
+    "includes": [
+        "**/*.{ts,tsx,js,jsx,cjs,mjs,vue,json,scss}"
+    ],
+    "excludes": [
+        "**/node_modules",
+        "**/dist",
+        "package-lock.json",
+        "vendor"
+    ],
+    "plugins": [
+        "dprint-plugin-typescript",
+        "dprint-plugin-json",
+        "dprint-plugin-malva",
+        "dprint-plugin-markup"
+    ]
+}

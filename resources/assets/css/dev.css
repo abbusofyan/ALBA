@@ -1,0 +1,10 @@
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+    background-color: rgb(var(--v-theme-primary)) !important;
+    color: rgb(var(--v-theme-on-primary)) !important;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel) {
+    background: rgb(var(--v-theme-error), var(--v-activated-opacity)) !important;
+    color: rgb(var(--v-theme-error)) !important;
+    border: thin solid currentColor;
+}

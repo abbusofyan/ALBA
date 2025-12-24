@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="POSReceiptService"
+             targetNamespace="http://www.envipco.com/POSReceiptService.wsdl"
+             xmlns:tns="http://www.envipco.com/POSReceiptService.wsdl"
+             xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+             xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:HTTP="http://schemas.xmlsoap.org/wsdl/http/"
+             xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+             xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+             xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema targetNamespace="http://www.envipco.com/POSReceiptService.wsdl"
+            xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+            xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+      <complexType name="GetBCFilter">
+        <sequence>
+          <element name="store" type="xsd:string"/>
+          <element name="chain" type="xsd:string"/>
+          <element name="POS" type="xsd:string"/>
+          <element name="flags" type="xsd:int"/>
+        </sequence>
+      </complexType>
+
+      <complexType name="BCData">
+        <sequence>
+          <element name="barcode" type="xsd:string"/>
+          <element name="store" type="xsd:string"/>
+          <element name="chain" type="xsd:string"/>
+          <element name="POS" type="xsd:string"/>
+          <element name="deposit" type="xsd:int"/>
+          <element name="PrintDate" type="xsd:string"/>
+          <element name="RedeemDate" type="xsd:string"/>
+          <element name="RVM" type="xsd:string"/>
+        </sequence>
+      </complexType>
+
+      <complexType name="BCDataArray">
+        <sequence>
+          <element name="array" type="tns:BCData" maxOccurs="unbounded"/>
+        </sequence>
+      </complexType>
+
+    </schema>
+  </types>
+
+  <message name="StatusResponse">
+    <part name="statusText" type="xsd:string"/>
+    <part name="httpStatusCode" type="xsd:int"/>
+  </message>
+
+  <message name="LockResponse">
+    <part name="statusText" type="xsd:string"/>
+    <part name="httpStatusCode" type="xsd:int"/>
+    <part name="deposit" type="xsd:int"/>
+  </message>
+
+  <message name="Lock2Response">
+    <part name="statusText" type="xsd:string"/>
+    <part name="httpStatusCode" type="xsd:int"/>
+    <part name="deposit" type="xsd:int"/>
+  </message>
+
+  <message name="RedeemResponse">
+    <part name="statusText" type="xsd:string"/>
+    <part name="httpStatusCode" type="xsd:int"/>
+    <part name="deposit" type="xsd:int"/>
+  </message>
+
+  <message name="Redeem2Response">
+    <part name="statusText" type="xsd:string"/>
+    <part name="httpStatusCode" type="xsd:int"/>
+    <part name="deposit" type="xsd:int"/>
+  </message>
+
+  <message name="CancelRedeemResponse">
+    <part name="statusText" type="xsd:string"/>
+    <part name="httpStatusCode" type="xsd:int"/>
+    <part name="deposit" type="xsd:int"/>
+  </message>
+
+  <message name="RemoveBCRequest">
+    <part name="barcode" type="xsd:string"/>
+    <part name="id" type="xsd:int"/>
+  </message>
+
+  <message name="AddReceiptRequest">
+    <part name="barcode" type="xsd:string"/>
+    <part name="store" type="xsd:string"/>
+    <part name="rvm" type="xsd:string"/>
+    <part name="deposit" type="xsd:int"/>
+  </message>
+
+  <message name="AddReceipt2Request">
+    <part name="barcode" type="xsd:string"/>
+    <part name="store" type="xsd:string"/>
+    <part name="chain" type="xsd:string"/>
+    <part name="rvm" type="xsd:string"/>
+    <part name="printSec" type="xsd:long"/>
+    <part name="deposit" type="xsd:int"/>
+  </message>
+
+  <message name="GetStatusRequest">
+  </message>
+
+  <message name="GetStatusResponse">
+    <part name="statusCode" type="xsd:int"/>
+    <part name="data" type="xsd:string"/>
+    <part name="dataIt" type="xsd:string"/>
+  </message>
+
+  <message name="LockRequest">
+    <part name="barcode" type="xsd:string"/>
+    <part name="POS" type="xsd:string"/>
+    <part name="store" type="xsd:string"/>
+  </message>
+
+  <message name="Lock2Request">
+    <part name="barcode" type="xsd:string"/>
+    <part name="POS" type="xsd:string"/>
+    <part name="store" type="xsd:string"/>
+    <part name="chain" type="xsd:string"/>
+  </message>
+
+  <message name="RedeemRequest">
+    <part name="barcode" type="xsd:string"/>
+    <part name="POS" type="xsd:string"/>
+    <part name="store" type="xsd:string"/>
+  </message>
+
+  <message name="Redeem2Request">
+    <part name="barcode" type="xsd:string"/>
+    <part name="POS" type="xsd:string"/>
+    <part name="store" type="xsd:string"/>
+    <part name="chain" type="xsd:string"/>
+  </message>
+
+  <message name="CancelRedeemRequest">
+    <part name="barcode" type="xsd:string"/>
+    <part name="POS" type="xsd:string"/>
+    <part name="store" type="xsd:string"/>
+    <part name="chain" type="xsd:string"/>
+  </message>
+
+  <message name="PingRequest">
+  </message>
+
+  <message name="PingResponse">
+    <part name="response" type="xsd:int"/>
+  </message>
+
+  <message name="GetBCDataRequest">
+    <part name="startDate" type="xsd:string"/>
+    <part name="endDate" type="xsd:string"/>
+    <part name="filter" type="tns:GetBCFilter"/>
+  </message>
+
+  <message name="GetBCDataCSVResponse">
+    <part name="httpStatusCode" type="xsd:int"/>
+    <part name="data" type="xsd:string"/>
+  </message>
+
+  <message name="GetBCDataResponse">
+    <part name="httpStatusCode" type="xsd:int"/>
+    <part name="data" type="tns:BCDataArray"/>
+  </message>
+
+  <portType name="POSReceiptPort">
+    <operation name="AddReceipt">
+      <input message="tns:AddReceiptRequest"/>
+      <output message="tns:StatusResponse"/>
+    </operation>
+    <operation name="AddReceipt2">
+      <input message="tns:AddReceipt2Request"/>
+      <output message="tns:StatusResponse"/>
+    </operation>
+    <operation name="GetStatus">
+      <input message="tns:GetStatusRequest"/>
+      <output message="tns:GetStatusResponse"/>
+    </operation>
+    <operation name="RemoveBC">
+      <input message="tns:RemoveBCRequest"/>
+      <output message="tns:StatusResponse"/>
+    </operation>
+    <operation name="Lock">
+      <input message="tns:LockRequest"/>
+      <output message="tns:LockResponse"/>
+    </operation>
+    <operation name="Lock2">
+      <input message="tns:Lock2Request"/>
+      <output message="tns:Lock2Response"/>
+    </operation>
+    <operation name="Redeem">
+      <input message="tns:RedeemRequest"/>
+      <output message="tns:RedeemResponse"/>
+    </operation>
+    <operation name="Redeem2">
+      <input message="tns:Redeem2Request"/>
+      <output message="tns:Redeem2Response"/>
+    </operation>
+    <operation name="CancelRedeem">
+      <input message="tns:CancelRedeemRequest"/>
+      <output message="tns:CancelRedeemResponse"/>
+    </operation>
+    <operation name="Ping">
+      <input message="tns:PingRequest"/>
+      <output message="tns:PingResponse"/>
+    </operation>
+    <operation name="GetBCDataCSV">
+      <input message="tns:GetBCDataRequest"/>
+      <output message="tns:GetBCDataCSVResponse"/>
+    </operation>
+    <operation name="GetBCData">
+      <input message="tns:GetBCDataRequest"/>
+      <output message="tns:GetBCDataResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="POSReceiptBinding" type="tns:POSReceiptPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RemoveBC">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="AddReceipt">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="AddReceipt2">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="GetStatus">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="Lock">
+      <soap:operation style="rpc" soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="Lock2">
+      <soap:operation style="rpc" soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="Redeem">
+      <soap:operation style="rpc" soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="Redeem2">
+      <soap:operation style="rpc" soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="CancelRedeem">
+      <soap:operation style="rpc" soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="Ping">
+      <soap:operation style="rpc" soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="GetBCDataCSV">
+      <soap:operation style="rpc" soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+    <operation name="GetBCData">
+      <soap:operation style="rpc" soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://www.envipco.com/POSReceiptService.wsdl"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="POSReceiptService">
+    <documentation>WSDL file for communication to the POS receipt server</documentation>
+    <port binding="tns:POSReceiptBinding" name="POSReceiptPort">
+      <soap:address location="https://posserver.envipco.com/POSImporter/"/>
+    </port>
+  </service>
+</definitions>
