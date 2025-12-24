@@ -48,6 +48,10 @@ The system serves two main purposes:
 ### Analytics & Data View
 ![Analytics View](https://github.com/user-attachments/assets/7fbc222f-a7f0-433a-8563-e2819b304907)
 
+### Swagger API Documentation
+<img width="1901" height="911" alt="image" src="https://github.com/user-attachments/assets/2fc91a63-40b6-4b4e-8d82-a6c3bd3f4338" />
+
+
 ---
 
 ## 📌 Notes
